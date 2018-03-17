@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+	<link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+	<a href="./index.html" class="back button">Back</a>
+
+	<div class="container">
+		<h1>Хитрости использования JS</h1>
+		
+		<ul>
+			<li>
+				Конвертация в Boolean с "!!"
+<pre>
+console.log(!!1);	// true
+console.log(!!'a');	// true
+console.log(!!'');	// false
+console.log(!!false);	// false
+console.log(!!NaN);	// false
+console.log(!!null);	// false
+console.log(!!undefined);	// false
+console.log(!!Infinity);	// true
+</pre>
+			</li>
+
+			<li>
+				Конвертация в Number с "+"
+<pre>
+console.log(+1);	// 1
+console.log(+'1');	// 1
+console.log(+'a2');	// NaN
+console.log(+'1e3');	// 1000
+console.log(+'.5');	// 0.5
+console.log(+'0x33');	// 51
+console.log(+new Date());	// 1521061818617
+</pre>
+			</li>
+
+			<li>Упрощеная запись условия с "&&"</li>
+
+			<li>Значения по умоланию с "||"</li>
+
+			<li>Слияние массивов с Array.concat</li>
+
+			<li>Конвертация в массив с Array.from</li>
+
+			<li>
+				Перемешивание массива
+<pre>
+[1,2,3,4].sort(() => Math.random() - .5);	// 2,1,4,3
+</pre>
+			</li>
+		</ul>
+	</div>
+
+	<script src="js/addPreButton.js"></script>
+</body>
+</html>

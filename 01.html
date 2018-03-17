@@ -1,0 +1,204 @@
+<!doctype html>
+<html>
+<head>
+	<link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+	<a href="./index.html" class="back button">Back</a>
+
+	<div class="container">
+		<h1>Что нового в ES6, отличия от ES5</h1>
+		
+		<ul>
+			<li>var против let / const</li>
+
+			<li>
+				Замена немедленно вызываемых функций (IIFE) на блоки (Blocks)
+<pre>
+// ES5
+(function() { ... })();
+// ES6
+{ ... }
+</pre>
+			</li>
+
+			<li>Стрелочные функции</li>
+
+			<li>
+				.include() и .repeat() для строк
+<pre>
+'123'.includes(2); // true
+'123'.repeat(3); // '123123123'
+</pre>
+			</li>
+
+			<li>
+				Шаблонные литералы с интерполяцией
+<pre>
+let name = 'Vasya';
+alert(`Hello, ${name}!`);
+</pre>
+			</li>
+
+			<li>
+				Деструктуризация массивов и объектов
+<pre>
+let [a, b] = [1, 2, 3, 4]; // a = 1, b = 2
+let {x, y} = {x: 100}; // x = 100, y = undefined
+</pre>
+			</li>
+
+			<li>
+				Модули - export / import
+<pre>
+export let name = 'Jack';
+export function hello(name) {}
+// OR
+export default {
+	x: 100, 
+	name: 'Vasya', 
+	func: () => {}
+};
+
+import 'math';
+import {x, name as text} from 'module';
+import * as util from 'utils';
+import util from 'utils';
+import foo, {foo1, foo2} from 'foos';
+</pre>
+			</li>
+
+			<li>Параметры по умолчанию</li>
+
+			<li>
+				Rest parameter / Остаточные параметры
+<pre>
+function foo(a, ...args) {
+	for(let arg of args) { ... }
+}
+</pre>
+			</li>
+
+			<li>
+				Именованные параметры
+<pre>
+function f1({x=100, y}) {
+	console.log(x, y)
+}
+
+function f2({x=100, y} = {}) {
+	console.log(x, y)
+}
+
+f1(1); // 100 undefined
+f1(); // Uncaught TypeError
+f1({x: 1, y: 2, z: 3}); // 1 2
+f2(1); // 100 undefined
+f2(); // 100 undefined
+f2({x: 1, y: 2, z: 3}); // 1 2
+</pre>
+			</li>
+
+			<li>Операторы расширения // Math.max(...[1, 2, 3])</li>
+
+			<li>Классы</li>
+
+			<li>
+				Мэпы
+<pre>
+let map = new Map([ ['name', 'David'], [true, 'TRUE'], [{}, 'object'] ]);
+map.has('name'); // true
+map.set('name', 'Vasiliy');
+map.get('name'); // Vasiliy
+
+for(let [key, value] of map.entries()) {
+	console.log(key, value);
+}
+</pre>
+			</li>
+
+			<li>
+				Promises
+<pre>
+function foo(a) {
+	return new Promise((ok, rej) => {
+    	isFinite(a) && ok(a + 100);
+		rej('A must be number');
+	})
+}
+
+Promise.race([foo(1), foo(2), foo(3)])
+	.then(console.info)
+	.catch(console.error)
+	.finally(x => console.log('Ok', x))
+</pre>
+			</li>
+
+			<li>
+				Генераторы
+<pre>
+function* gen(a=98) {
+	let input;
+	while(a < 100) {
+		input = yield a++;
+	}
+	yield input;
+}
+
+let g = gen();
+console.log(g.next(2)); // {value: 98, done: false}
+console.log(g.next(3)); // {value: 99, done: false}
+console.log(g.next(4)); // {value: 4, done: false}
+console.log(g.next(5)); // {value: undefined, done: true}
+</pre>
+			</li>
+
+			<li>
+				Async / Await
+<pre>
+async function f(a) {
+	await console.log(a+1)
+	await console.log(a+2)
+	console.log(a+3)
+}
+f(10)
+f(100)
+f(1000)
+console.log('done')
+// Result: 11, 101, 1001, done
+// Then: 12, 102, 1002
+// Then: 13, 103, 1003
+</pre>
+			</li>
+
+			<li>
+				Getters / Setters
+<pre>
+// Classes
+class Person {
+	get name() { ... }
+	set name(newName) { ... }
+}
+// Objects
+let p = {
+	_name: 'Jack',
+	get name() { ... },
+	set name(new Name) { ... }
+}
+</pre>
+			</li>
+
+			<li>
+				Symbol / Symbol.for
+<pre>
+Symbol('a') == Symbol('a') // false
+Symbol('a') == Symbol.for('a') // false
+Symbol.for('a') == Symbol.for('a') // true
+</pre>
+			</li>
+		</ul>
+	</div>
+
+	<script src="js/addPreButton.js"></script>
+</body>
+</html>

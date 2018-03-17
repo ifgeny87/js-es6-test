@@ -1,0 +1,41 @@
+body {
+	background: #ffffdd;
+	font: 16px Verdana;
+}
+
+.container {
+	width: 80%;
+	margin: auto;
+}
+
+/* "Back to index" button */
+.back {
+	position: fixed;
+	top: 5px;
+	left: 5px;
+	text-decoration: none;
+	color: black;
+}
+
+pre {
+	border: 1px solid gray;
+	padding: 5px 10px;
+	margin: 0;
+	display: none;
+}
+
+.code-block {
+	padding: 5px;
+}
+
+.button {
+	border: 1px solid black;
+	padding: 2px 5px;
+	background: #ccc;
+	cursor: default;
+	display: inline-block;
+}
+
+.button:hover {
+	background: #999;
+}
